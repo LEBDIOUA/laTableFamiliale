@@ -7,7 +7,8 @@ export const login = (email, password) => {
     dispatch(loginRequest());
     try {
       const response = await API.login(email, password);
-      dispatch(loginSuccess(response.data));
+      if(response.err) dispatch(loginFailure(response.err))
+        else dispatch(loginSuccess(response.data));
     } catch (error) {
       dispatch(loginFailure(error.message));
     }
@@ -34,7 +35,6 @@ const utilisateurSlice = createSlice({
         };
       })
       .addCase(loginSuccess, (state, action) => {
-        console.log("loginSuccess");
         return {
           ...state,
           utilisateur: action.payload,
@@ -42,11 +42,11 @@ const utilisateurSlice = createSlice({
         };
       })
       .addCase(loginFailure, (state, action) => {
-        console.log("loginFailure");
         return {
           ...state,
           loading: false,
-          error: action.error,
+          utilisateur: null,
+          error: action.payload,
         };
       })
       .addCase(logout, () => {

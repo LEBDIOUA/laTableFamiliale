@@ -1,69 +1,95 @@
 .header {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  background: #cddffa40;
+  border-radius: 30px 0px;
+  height: 210px;
+  grid-area: head;
+  box-shadow: 0px 0px 2px 1px #824737;
+
+  &_logo {
+    max-height: 100%;
+    align-content: center;
+    #imgLogo {
+      height: 200px;
+      width: 200px;
+      border-radius: 100px 0px;
+    }
+  }
+  &_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &_titre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    h1 {
+      font-size: 36px;
+      color: #034194;
+    }
+    h2 {
+      font-size: 22px;
+      color: #ff914d;
+    }
+  }
+
+  &_menulogin {
     display: flex;
     flex-direction: row;
-    gap: 50px;
-    background: #cddffa40;
-    border-radius: 30px 0px;
-    height: 210px;
-    grid-area: head;
+    justify-content: space-between;
+  }
 
-    &_logo {
-        max-height: 100%;
-        align-content: center;
-        #imgLogo {
-            height: 200px;
-            width: 200px;
-            border-radius: 100px 0px;
-        }
+  &_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    &_item {
+      width: 100%;
     }
-    &_content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
+  }
 
-    &_titre {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 10px;
-        h1 {
-            font-size: 36px;
-            color: #034194;
-        }
-        h2 {
-            font-size: 22px;
-            color: #ff914d;
-        }
+  &_authentification {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 10px 0px 0px;
+    &_item {
+      min-width: fit-content;
+      padding: 0px 15px;
     }
-
-    &_menulogin {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    &_profil {
+      width: 60px;
+      height: auto;
+      border-radius: 10px;
     }
-
-    &_menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 30px;
-        &_item {
-            width: 100%;
-        }
+    &_userData {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
-
-    &_authentification {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-        padding: 0px 10px 0px 0px;
-        &_item {
-            min-width: fit-content;
-            padding: 0px 15px;
-        }
+    &_detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      height: 100%;
+      p {
+        background-color: #824737;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+      }
     }
+  }
 }

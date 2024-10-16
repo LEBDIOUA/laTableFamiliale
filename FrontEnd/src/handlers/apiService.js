@@ -93,15 +93,20 @@ class API {
         storedData.utilisateur = utilisateur;
         localStorage.setItem("persist:root", JSON.stringify(storedData));
 
-        return { token: response.data.token };
+        return { token: response.data.token, err: null };
       } catch (error) {
         console.error("Error fetching user token:", error.message);
-        return { err: error };
+        return { err: error.message };
       }
     } else {
       const data = JSON.parse(localStorage.getItem("persist:root")) || {};
       const utilisateur = data.utilisateur || {};
-      return { token: utilisateur ? utilisateur.token : null };
+      
+      if (!utilisateur || !utilisateur.email) {
+        return { err: "Request failed with status code 401", token: null };
+      } else {
+        return { err: null, token: utilisateur.token };
+      }
     }
   }
 
@@ -109,16 +114,17 @@ class API {
     let endpointConfig = this.buildEndpoint("GET_UTILISATEUR");
     const responseGetToken = await this.getToken(email, password);
     try {
-      if (responseGetToken.err) return { err: responseGetToken.err };
+      if (responseGetToken && responseGetToken.err) return { err: responseGetToken.err };
       else if (responseGetToken.token) {
         const response = await this.axiosInstance.get(endpointConfig.url);
         let data = response.data;
         data.email = email;
+        data.token = responseGetToken.token;
         return { data: data };
       }
     } catch (error) {
       console.error("Error fetching user:", error);
-      return { err: error, data: null };
+      return { err: error.message, data: null };
     }
   }
 

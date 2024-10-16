@@ -1,4 +1,18 @@
 .menuAside {
-  border: 1px solid black;
   grid-area: nav;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+    text-align: center;
+  &_slide{
+    display: block;
+    border: 2px solid black;
+    padding: 10px;
+  }
+  &_img, &_txt{
+    width: 100%;
+    min-height: 248.4px;
+    align-content: center;
+  }
 }

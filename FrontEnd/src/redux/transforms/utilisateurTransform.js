@@ -7,19 +7,21 @@ const utilisateurTransform = createTransform(
     const storedData = JSON.parse(localStorage.getItem("persist:root")) || {};
     let utilisateur = storedData.utilisateur;
 
-    console.log("utilisateurTransform (avant) : ", utilisateur);
-
-    if(!utilisateur || typeof(utilisateur) !== "object") utilisateur = {};
-    utilisateur.token = utilisateur ? utilisateur.token : inboundState.token?? {};
-    utilisateur.nom = inboundState.nom;
-    utilisateur.prenom = inboundState.prenom;
-    utilisateur.email = inboundState.email;
-    utilisateur.roles = inboundState.roles?.length ? inboundState.roles : utilisateur.roles;
+    if (!utilisateur || typeof utilisateur !== "object") utilisateur = {};
+    if (inboundState && inboundState.email) {
+      utilisateur = {
+        token: utilisateur ? utilisateur.token : inboundState.token ?? {},
+        nom: inboundState?.nom ?? null,
+        prenom: inboundState?.prenom ?? null,
+        email: inboundState?.email ?? null,
+        roles: inboundState?.roles?.length ? inboundState.roles : utilisateur.roles,
+      };
+    } else {
+      utilisateur = {};
+    }
 
     storedData.utilisateur = JSON.stringify(utilisateur);
     localStorage.setItem("persist:root", JSON.stringify(storedData));
-
-    console.log("utilisateurTransform (apres) : ", utilisateur);
 
     return utilisateur;
   },
@@ -27,15 +29,12 @@ const utilisateurTransform = createTransform(
   // Fonction avant de réhydrater les données depuis le storage
   (outboundState) => {
     const storedData = JSON.parse(localStorage.getItem("persist:root"));
-    const utilisateur = JSON.parse(storedData.utilisateur || "{}");
+    const utilisateur = JSON.parse(storedData.utilisateur) || null;
 
-    return storedData
+    return storedData && utilisateur
       ? {
           ...outboundState,
-          nom: utilisateur.nom,
-          prenom: utilisateur.prenom,
-          email: utilisateur.email,
-          roles: utilisateur.roles,
+          ...utilisateur,
         }
       : outboundState;
   },

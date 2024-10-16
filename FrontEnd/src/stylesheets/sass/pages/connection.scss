@@ -1,5 +1,9 @@
 .connectionPage{
-    align-self: center;
+    place-self: center;
+    grid-area: main;
+    *{
+        padding: 0;
+    }
 }
 
 .form_connection {

@@ -1,6 +1,36 @@
 .footer {
-  border: 1px solid black;
+  box-shadow: inset 0px 0px 2px 1px #824737;
   grid-area: foot;
   align-content: center;
-  text-align: center;
+  background-color: #cddffa40;
+  border-radius: 0px 30px;
+  padding: 20px;
+  * {
+    line-height: 30px;
+  }
+
+  display: grid;
+  grid-template-areas:
+    "title title title"
+    "topic1 topic2 topic3";
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 15px;
+  column-gap: 30px;
+
+  &_titre {
+    font-size: 20px;
+    grid-area: title;
+    text-align: center;
+    align-items: center;
+  }
+  &_topRecettes {
+    grid-area: topic1;
+  }
+  &_demandes {
+    grid-area: topic2;
+  }
+  &_contact {
+    grid-area: topic3;
+  }
 }

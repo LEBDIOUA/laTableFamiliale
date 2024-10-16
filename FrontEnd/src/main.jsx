@@ -4,31 +4,36 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Accueil from "./pages/Accueil.jsx";
 import Recette from "./pages/Recette.jsx";
+import Recettes from "./pages/Recettes.jsx";
 import Connection from "./pages/connection.jsx";
 import Inscription from "./pages/Inscription.jsx";
 import { Provider } from "react-redux";
 import { myStore } from "./redux/myStore.js";
+import AsideMenu from "./components/AsideMenu.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
   const location = useLocation();
-
+  const layoutClass = location.pathname === "/connection" || location.pathname === "/inscription" ? "layout-login" : "";
+  document.getElementById("root");
   return (
-    <>
+    <div className={`layout ${layoutClass}`}>
       <Header />
       <Routes>
         <Route path="/" element={<Accueil />} />
-        <Route path="/recettes" element={<Recette />} />
+        <Route path="/recettes" element={<Recettes />} />
+        <Route path="/recette" element={<Recette />} />
         <Route path="/connection" element={<Connection />} />
         <Route path="/inscription" element={<Inscription />} />
       </Routes>
 
-      {location.pathname !== "/connection" && location.pathname !== "/inscription"  &&(
+      {location.pathname !== "/connection" && location.pathname !== "/inscription" && (
         <>
-          <aside className="menuAside">Menu principal</aside>
-          <footer className="footer">Pied de page</footer>
+          <AsideMenu />
+          <Footer />
         </>
       )}
-    </>
+    </div>
   );
 };
 
