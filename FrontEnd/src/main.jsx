@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import { myStore } from "./redux/myStore.js";
 import AsideMenu from "./components/AsideMenu.jsx";
 import Footer from "./components/Footer.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const App = () => {
   const location = useLocation();
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/recette" element={<Recette />} />
         <Route path="/connection" element={<Connection />} />
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
 
       {location.pathname !== "/connection" && location.pathname !== "/inscription" && (

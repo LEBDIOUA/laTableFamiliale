@@ -13,6 +13,7 @@ function Connection() {
     setErrorMessage(null); // Réinitialiser l'erreur avant la nouvelle tentative
     try {
       await dispatch(login(emailRef.current.value, passRef.current.value));
+      window.location.href = "/";
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -42,15 +43,7 @@ function Connection() {
           Mot de passe :{" "}
         </label>
         <div className={`form_connection_input form_connection_div ${isFocused ? "focused" : ""}`}>
-          <input
-            id="password"
-            type="password"
-            tabIndex={1}
-            className="form_connection_input"
-            ref={passRef}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
+          <input id="password" type="password" tabIndex={1} className="form_connection_input" ref={passRef} onFocus={handleFocus} onBlur={handleBlur} />
           <p className="eye-btn btn" onClick={visiblityPassword}>
             x
           </p>

@@ -1,13 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useRef } from "react";
+import ProfileMenu from "./ProfileMenu";
 
 function Header() {
+  const profileMenuRef = useRef(null);
   const statutLogin = {
     utilisateur: useSelector((state) => state.utilisateur),
     err: useSelector((state) => state.error),
   };
   console.log("utilisateur header  :  ", statutLogin.utilisateur);
   console.log("error header  :  ", statutLogin.err);
+
+  const controlProfileMenu = () => {
+    console.log("click");
+    profileMenuRef.current.classList.toggle("hide");
+  };
 
   return (
     <>
@@ -48,12 +56,7 @@ function Header() {
             )}
             {statutLogin.utilisateur && Object.keys(statutLogin.utilisateur).length > 0 && (
               <div className="header_authentification">
-                <img
-                  src="profil.png"
-                  alt="Image illustrant profil"
-                  title={statutLogin.utilisateur.nom ?? statutLogin.utilisateur.email}
-                  className="header_authentification_profil"
-                />
+                <img src="profil.png" alt="Image illustrant profil" title={statutLogin.utilisateur.nom ?? statutLogin.utilisateur.email} className="header_authentification_profil" />
                 <div className="header_authentification_userData">
                   {statutLogin.utilisateur.nom && (
                     <p>
@@ -63,17 +66,12 @@ function Header() {
                   )}
                   <p>{statutLogin.utilisateur.email}</p>
                 </div>
-                <NavLink to="/recettes" className="header_authentification_detail">
+                <div className="header_authentification_detail" aria-placeholder="Cliquez ici pour voir votre profil" onClick={controlProfileMenu}>
                   <p></p>
                   <p></p>
                   <p></p>
-                  {/* <img
-                  src="detail.png"
-                  alt="Cliquez ici pour voir votre profil"
-                  title="Détail du profil"
-                  className="header_authentification_detail"
-                /> */}
-                </NavLink>
+                </div>
+                <ProfileMenu valueRef={profileMenuRef} />
               </div>
             )}
           </div>
