@@ -19,13 +19,13 @@ body {
 }
 
 #root,
-body {
+body,
+.layout {
   width: 100%;
   height: 100%;
 }
 
 .layout {
-  height: 100%;
   display: grid;
   grid-template-areas: "head head head" "nav main main" "foot foot foot";
   grid-template-rows: 210px 1fr 250px;
@@ -56,9 +56,11 @@ a {
   cursor: pointer;
 }
 
+main {
+  padding: 50px;
+}
 main * {
   line-height: 30px;
-  padding: 10px 50px;
 }
 
 li {
@@ -70,7 +72,7 @@ li {
   grid-area: foot;
   align-content: center;
   background-color: rgba(205, 223, 250, 0.2509803922);
-  border-radius: 0px 30px;
+  border-radius: 30px 0px;
   padding: 20px;
   display: grid;
   grid-template-areas: "title title title" "topic1 topic2 topic3";
@@ -318,6 +320,70 @@ li {
 
 .accueilPage {
   grid-area: main;
+}
+
+.form-profile {
+  box-shadow: 0px 0px 2px 1px #824737;
+  grid-area: main;
+  border-radius: 0px 30px 0px 0px;
+}
+.form-profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.form-profile-form-groups {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.form-profile-form-groups label,
+.form-profile-form-groups input {
+  width: 250px;
+}
+.form-profile-form-groups-input {
+  display: flex;
+  flex-direction: row;
+}
+.form-profile-form-groups-input input {
+  flex-grow: 1;
+}
+.form-profile-form-groups-input .eye-btn {
+  width: 30px;
+  align-self: center;
+}
+.form-profile-form-groups-div {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.form-profile-form-groups-div.focused {
+  box-shadow: 0 0 0 1.5px black; /* Simule une bordure de 2px sans changer la taille */
+  border-color: transparent;
+}
+.form-profile-form-groups-div input {
+  border: none;
+  width: 220px;
+}
+.form-profile-form-groups-div input:focus {
+  outline: none;
+}
+.form-profile-form-photo {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 500px;
+  align-items: center;
+}
+.form-profile-form-photo #photo {
+  width: 160px;
+  min-width: 160px;
+  height: 160px;
+  min-height: 160px;
+  border-radius: 80px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=style.css.map */
