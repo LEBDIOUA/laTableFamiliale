@@ -33,24 +33,24 @@ function Connection() {
 
   return (
     <main className="connectionPage">
-      <form className="form_connection">
-        <label htmlFor="email" className="form_connection_label">
+      <form className="form-connection">
+        <label htmlFor="email" className="form-connection-label">
           Email :{" "}
         </label>
-        <input id="email" type="text" tabIndex={0} className="form_connection_input" ref={emailRef} />
+        <input id="email" type="text" tabIndex={0} className="form-connection-input" ref={emailRef} />
 
-        <label htmlFor="password" className="form_connection_label">
+        <label htmlFor="password" className="form-connection-label">
           Mot de passe :{" "}
         </label>
-        <div className={`form_connection_input form_connection_div ${isFocused ? "focused" : ""}`}>
-          <input id="password" type="password" tabIndex={1} className="form_connection_input" ref={passRef} onFocus={handleFocus} onBlur={handleBlur} />
+        <div className={`form-connection-input form-connection-div ${isFocused ? "focused" : ""}`}>
+          <input id="password" type="password" tabIndex={1} className="form-connection-input" ref={passRef} onFocus={handleFocus} onBlur={handleBlur} />
           <p className="eye-btn btn" onClick={visiblityPassword}>
             x
           </p>
         </div>
 
         <button
-          className="form_connection_btn btn"
+          className="form-connection-btn btn"
           onClick={(e) => {
             e.preventDefault();
             seConnecter();

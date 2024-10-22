@@ -6,18 +6,18 @@
     }
 }
 
-.form_connection {
+.form-connection {
   width: fit-content;
   display: flex;
   flex-direction: column;
   padding: 20px 100px;
   gap: 25px;
-  &_input {
+  &-input {
     width: 300px;
     height: 35px;
     border-radius: 10px;
   }
-  &_div {
+  &-div {
     border: 2px solid grey;
     border-top-color: black;
     border-left-color: black;
@@ -32,7 +32,7 @@
       align-self: center;
       text-align-last: center;
     }
-    .form_connection_input {
+    .form-connection-input {
       width: auto;
       flex-grow: 1;
       height: initial;
@@ -44,7 +44,7 @@
       }
     }
   }
-  &_btn {
+  &-btn {
     width: 150px;
     height: 35px;
     border-radius: 75px;

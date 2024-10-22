@@ -3,17 +3,17 @@ import { NavLink } from "react-router-dom";
 function AsideMenu() {
   return (
     <aside className="menuAside">
-      <NavLink to="recette" className="menuAside_slide">
+      <NavLink to="recette" className="menuAside-slide">
         <img
           src="meilleurRecette.png"
           alt="Image illustrant la meilleure recette"
           title="meilleur recette"
-          className="menuAside_img imgRecette"
+          className="menuAside-img imgRecette"
         />
         <h2>Meilleur recette</h2>
       </NavLink>
 
-      <h2 className="menuAside_txt menuAside_slide">Citation du jour</h2>
+      <h2 className="menuAside-txt menuAside-slide">Citation du jour</h2>
     </aside>
   );
 }

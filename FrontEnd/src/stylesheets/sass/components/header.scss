@@ -8,7 +8,7 @@
   grid-area: head;
   box-shadow: 0px 0px 2px 1px #824737;
 
-  &_logo {
+  &-logo {
     max-height: 100%;
     align-content: center;
     #imgLogo {
@@ -17,13 +17,13 @@
       border-radius: 100px 0px;
     }
   }
-  &_content {
+  &-content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
 
-  &_titre {
+  &-titre {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,24 +38,25 @@
     }
   }
 
-  &_menulogin {
+  &-menulogin {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-right: 20px;
   }
 
-  &_menu {
+  &-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    &_item {
+    &-item {
       width: 100%;
     }
   }
 
-  &_authentification {
+  &-authentification {
     position: relative;
     width: fit-content;
     display: flex;
@@ -63,23 +64,22 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding: 0px 10px 0px 0px;
-    &_item {
+    &-item {
       min-width: fit-content;
       padding: 0px 15px;
     }
-    &_profil {
-      width: 60px;
+    &-profil {
+      width: 50px;
       height: auto;
-      border-radius: 10px;
+      border-radius: 25px;
     }
-    &_userData {
+    &-userData {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
     }
-    &_detail {
+    &-detail {
       display: flex;
       flex-direction: column;
       justify-content: center;

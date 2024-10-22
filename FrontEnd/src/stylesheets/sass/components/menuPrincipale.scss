@@ -5,12 +5,12 @@
   flex-direction: column;
   gap: 20px;
     text-align: center;
-  &_slide{
+  &-slide{
     display: block;
     border: 2px solid black;
     padding: 10px;
   }
-  &_img, &_txt{
+  &-img, &-txt{
     width: 100%;
     min-height: 248.4px;
     align-content: center;

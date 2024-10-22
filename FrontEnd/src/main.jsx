@@ -5,17 +5,21 @@ import Header from "./components/Header.jsx";
 import Accueil from "./pages/Accueil.jsx";
 import Recette from "./pages/Recette.jsx";
 import Recettes from "./pages/Recettes.jsx";
-import Connection from "./pages/connection.jsx";
+import Connection from "./pages/Connection.jsx";
 import Inscription from "./pages/Inscription.jsx";
 import { Provider } from "react-redux";
 import { myStore } from "./redux/myStore.js";
 import AsideMenu from "./components/AsideMenu.jsx";
 import Footer from "./components/Footer.jsx";
 import Profile from "./pages/Profile.jsx";
+import "./config.js";
 
 const App = () => {
   const location = useLocation();
-  const layoutClass = location.pathname === "/connection" || location.pathname === "/inscription" ? "layout-login" : "";
+  const layoutClass =
+    location.pathname === "/connection" || location.pathname === "/inscription"
+      ? "layout-login"
+      : "";
   document.getElementById("root");
   return (
     <div className={`layout ${layoutClass}`}>
